@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./App.css";
+import "./style.css";
 import { puppyList } from "./data.js";
 
 function App() {
@@ -10,20 +10,24 @@ function App() {
 
   return (
     <div className="App">
-      {puppies.map((puppy) => {
-        return (
-          <p
-            onClick={() => {
-              setFeatPupId(puppy.id);
-            }}
-            key={puppy.id}
-          >
-            {puppy.name}
-          </p>
-        );
-      })}
+      <div className="puppy">
+        {puppies.map((puppy) => {
+          return (
+            <p
+              className="puppy-name"
+              onClick={() => {
+                setFeatPupId(puppy.id);
+              }}
+              key={puppy.id}
+            >
+              {puppy.name}
+            </p>
+          );
+        })}
+      </div>
+
       {featPupId && (
-        <div>
+        <div className="card">
           <h2>{featuredPup.name}</h2>
           <ul>
             <li>Age: {featuredPup.age}</li>
